@@ -68,7 +68,7 @@ const Welcome = props => {
         <View style={{flex: 5}}>
           {accountTypes.map(accountType => (
             <UIButton
-              debugger
+              // debugger
               onPress={() => {
                 setAccountTypes(
                   accountTypes.map(eachAccountType => {
@@ -84,7 +84,10 @@ const Welcome = props => {
             />
           ))}
         </View>
-        <View style={{flex: 5}}></View>
+        <View style={{flex: 5}}>
+          <UIButton title={'login'.toUpperCase()} />
+          <Text>want to register new account</Text>
+        </View>
       </ImageBackground>
     </View>
   );
