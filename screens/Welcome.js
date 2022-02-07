@@ -5,9 +5,10 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
-import {Images, Icons, fontSize} from '../constants/Index';
+import {Images, Icons, fontSize, Colors} from '../constants/Index';
 import UIButton from '../components/UIButton';
 
 const Welcome = props => {
@@ -34,26 +35,29 @@ const Welcome = props => {
             style={{height: 30, width: 30, margin: 10}}
             source={Icons.fireIcon}
           />
-          <Text style={{color: 'white', fontSize: 18, marginTop: 10}}>
+          <Text style={{color: 'white', fontSize: 18, marginTop: 17}}>
             KVCOMPANY.CO
           </Text>
           <View style={{flex: 1}}></View>
-          <Image
-            source={Icons.questionIcon}
-            style={{
-              height: 20,
-              width: 20,
-              marginRight: 10,
-              marginTop: 10,
-              tintColor: 'white',
-            }}
-          />
+          <TouchableOpacity>
+            <Image
+              source={Icons.questionIcon}
+              style={{
+                height: 20,
+                width: 20,
+                marginRight: 10,
+                marginTop: 10,
+                tintColor: 'white',
+              }}
+            />
+          </TouchableOpacity>
         </View>
         <View
           style={{
-            flex: 4,
+            flex: 3,
             alignItems: 'center',
             justifyContent: 'center',
+            marginBottom: 10,
           }}>
           <Text style={{color: 'white', fontSize: fontSize.h6}}>
             Welcome to
@@ -65,7 +69,7 @@ const Welcome = props => {
             Please select account type
           </Text>
         </View>
-        <View style={{flex: 5}}>
+        <View style={{flex: 7}}>
           {accountTypes.map(accountType => (
             <UIButton
               // debugger
@@ -84,9 +88,28 @@ const Welcome = props => {
             />
           ))}
         </View>
-        <View style={{flex: 5}}>
+        <View style={{flex: 4}}>
           <UIButton title={'login'.toUpperCase()} />
-          <Text>want to register new account</Text>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: fontSize.h6,
+              alignSelf: 'center',
+              marginVertical: 7,
+            }}>
+            Want to register new account
+          </Text>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: Colors.primary,
+                fontSize: fontSize.h6,
+                alignSelf: 'center',
+                textDecorationLine: 'underline',
+              }}>
+              Register
+            </Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>

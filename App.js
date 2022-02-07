@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Welcome from './screens/Welcome';
+import {Welcome, Login} from './screens/Index';
 
 const App = props => {
-  return <Welcome />;
+  return <Login />;
 };
 
 export default App;
