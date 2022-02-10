@@ -1,9 +1,9 @@
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Welcome, Login} from './screens/Index';
+import {Welcome, Login, Register} from './screens/Index';
 
 const App = props => {
-  return <Login />;
+  return <Register />;
 };
 
 export default App;

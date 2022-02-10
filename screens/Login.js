@@ -10,8 +10,18 @@ import {
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../constants/Index';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {isValidEmail, isValidPassword} from '../itilies/Validation';
 
 const Login = props => {
+  const [errorEmail, setErrorEmail] = useState('');
+  const [errorPassword, setErrorPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const isValidationOk = () =>
+    email.length > 0 &&
+    password.length > 0 &&
+    isValidEmail(email) == true &&
+    isValidPassword(password) == true;
   return (
     <KeyboardAvoidingView style={{flex: 1}}>
       <View
@@ -41,40 +51,63 @@ const Login = props => {
           Email :
         </Text>
         <TextInput
+          style={{height: 38}}
           placeholder="E.g: KhanhZua@gmail.com"
           placeholderTextColor={Colors.placeholder}
+          onChangeText={text => {
+            setErrorEmail(isValidEmail(text) ? '' : 'Email invalidate');
+            setEmail(text);
+          }}
         />
         <View
           style={{
             width: '100%',
-            height: 0.6,
+            height: 1,
             backgroundColor: 'red',
-            marginBottom: 10,
-          }}></View>
+          }}
+        />
+        <Text style={{color: 'red', fontSize: fontSize.h6, marginBottom: 10}}>
+          {errorEmail}
+        </Text>
       </View>
       <View style={{marginHorizontal: 20}}>
         <Text style={{color: Colors.primary, fontSize: fontSize.h4}}>
           Password :
         </Text>
         <TextInput
+          style={{height: 38}}
           secureTextEntry={true}
           placeholder="Enter your password"
           placeholderTextColor={Colors.placeholder}
+          onChangeText={pass => {
+            setErrorPassword(
+              isValidPassword(pass)
+                ? ''
+                : 'Password must be more than 3 characters',
+            );
+            setPassword(pass);
+          }}
         />
         <View
           style={{
             width: '100%',
             height: 0.6,
             backgroundColor: 'red',
-            marginBottom: 10,
-          }}></View>
+          }}
+        />
+        <Text style={{color: 'red', fontSize: fontSize.h6}}>
+          {errorPassword}
+        </Text>
       </View>
-
       {/* button */}
       <TouchableOpacity
+        disabled={isValidationOk() == false}
+        // onPress={() => {
+        //   alert(`Email: ${email} \nPassword: ${password}`);
+        // }}
         style={{
           width: '50%',
-          backgroundColor: Colors.primary,
+          backgroundColor: isValidationOk() ? Colors.primary : Colors.disabled,
           height: 40,
           justifyContent: 'center',
           alignItems: 'center',
@@ -109,7 +142,6 @@ const Login = props => {
         </Text>
         <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
       </View>
-
       <View style={{flexDirection: 'row', justifyContent: 'center'}}>
         <Icon name="facebook" size={30} color={Colors.facebook} />
         <View style={{width: 15}}></View>
