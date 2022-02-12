@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
+  StatusBar,
 } from 'react-native';
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../constants/Index';
@@ -34,6 +35,7 @@ const Register = ({navigation}) => {
     checkPassword(password, rePassword) == null;
   return (
     <KeyboardAvoidingView style={{flex: 1, backgroundColor: Colors.primary}}>
+      <StatusBar backgroundColor={Colors.primary} />
       <View
         style={{
           flexDirection: 'row',
@@ -185,7 +187,7 @@ const Register = ({navigation}) => {
           flexDirection: 'row',
           alignItems: 'center',
           marginHorizontal: 22,
-          marginTop: 40,
+          marginTop: 70,
         }}>
         <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
         <Text style={{padding: 8, marginHorizontal: 5, color: 'white'}}>
@@ -203,6 +205,7 @@ const Register = ({navigation}) => {
           height: 45,
           backgroundColor: 'white',
           borderRadius: 40,
+          marginTop: 10,
         }}>
         <Icon name="facebook" size={30} color={Colors.facebook} />
         <View style={{width: 25}} />

@@ -20,6 +20,7 @@ const Welcome = ({navigation}) => {
   // debugger;
   return (
     <View style={{flex: 1}}>
+      <StatusBar hidden={false} backgroundColor="#ccc" />
       <ImageBackground
         source={Images.background}
         resizeMode="cover"
@@ -69,10 +70,11 @@ const Welcome = ({navigation}) => {
             Please select account type
           </Text>
         </View>
-        <View style={{flex: 7}}>
+        <View style={{flex: 6}}>
           {accountTypes.map(accountType => (
             <UIButton
               // debugger
+              key={accountType.name}
               onPress={() => {
                 setAccountTypes(
                   accountTypes.map(eachAccountType => {
@@ -88,21 +90,21 @@ const Welcome = ({navigation}) => {
             />
           ))}
         </View>
-        <View style={{flex: 4}}>
+        <View style={{flex: 5}}>
           <UIButton
             onPress={() => navigation.navigate('Login')}
-            title={'login'.toUpperCase()}
+            title={'Next'.toUpperCase()}
           />
           <Text
             style={{
               color: 'white',
               fontSize: fontSize.h6,
               alignSelf: 'center',
-              marginVertical: 7,
+              marginVertical: 10,
             }}>
             Want to register new account
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
             <Text
               style={{
                 color: Colors.primary,

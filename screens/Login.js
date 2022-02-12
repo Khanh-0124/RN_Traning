@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
+  StatusBar,
 } from 'react-native';
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../constants/Index';
@@ -24,6 +25,8 @@ const Login = ({navigation}) => {
     isValidPassword(password) == true;
   return (
     <KeyboardAvoidingView style={{flex: 1}}>
+      <StatusBar backgroundColor={Colors.background} />
+
       <View
         style={{
           flexDirection: 'row',
@@ -102,9 +105,7 @@ const Login = ({navigation}) => {
       {/* button */}
       <TouchableOpacity
         disabled={isValidationOk() == false}
-        // onPress={() => {
-        //   alert(`Email: ${email} \nPassword: ${password}`);
-        // }}
+        onPress={() => navigation.navigate('FoodList')}
         style={{
           width: '50%',
           backgroundColor: isValidationOk() ? Colors.primary : Colors.disabled,
