@@ -1,2 +1,2 @@
-# RN_Traning
-Food, ChatApp
+# RN_Traning 
+
