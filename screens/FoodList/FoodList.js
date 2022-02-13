@@ -150,6 +150,12 @@ const FoodList = ({navigation}) => {
       url: 'https://ngonngon.net/wp-content/uploads/2019/02/16.-B%C3%ADt-t%E1%BA%BFt-s%E1%BB%91t-ti%C3%AAu-t%E1%BB%8Fi-%E2%80%93-Aha-Food-73-Ng%C3%B5-10-T%C3%B4n-Th%E1%BA%A5t-T%C3%B9ng-%C4%90%E1%BB%91ng-%C4%90a-65k.jpg',
     },
   ]);
+  const [search, setSearch] = useState('');
+  const filteredFoods = () => {
+    return foods.filter(eachFood => {
+      return eachFood.name.toLowerCase().includes(search.toLowerCase());
+    });
+  };
   return (
     // <ScrollView style={{flex: 1}}>
     //   <StatusBar barStyle="dark-content" backgroundColor="#f2f2f2" />
@@ -160,9 +166,36 @@ const FoodList = ({navigation}) => {
     <View style={{flex: 1}}>
       <StatusBar barStyle="dark-content" backgroundColor="#f2f2f2" />
       <View>
-        <View style={{height: 60}}></View>
+        <View
+          style={{
+            height: 60,
+            justifyContent: 'space-around',
+            flexDirection: 'row',
+          }}>
+          <TextInput
+            autoCorrect={false}
+            style={{
+              height: 40,
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              width: '80%',
+              alignSelf: 'center',
+              borderRadius: 7,
+              marginLeft: 5,
+              paddingStart: 10,
+              paddingEnd: 38,
+            }}
+            onChangeText={text => setSearch(text)}
+          />
+          <TouchableOpacity
+            style={{position: 'absolute', right: 73, marginTop: 17}}>
+            <Icon name="search" size={23} color={'rgba(0,0,0,0.7)'} />
+          </TouchableOpacity>
+          <TouchableOpacity style={{alignSelf: 'center', marginRight: 5}}>
+            <Icon name="filter" size={25} color={'rgba(0,0,0,0.7)'} />
+          </TouchableOpacity>
+        </View>
         <View style={{height: 1, backgroundColor: '#333'}}></View>
-        <View style={{height: 100, backgroundColor: 'pink'}}>
+        <View style={{height: 90}}>
           <FlatList
             horizontal={true}
             data={categories}
@@ -189,13 +222,21 @@ const FoodList = ({navigation}) => {
           />
         </View>
       </View>
-      <FlatList
-        data={foods}
-        renderItem={({item}) => {
-          return <FoodItem food={item} onPress={() => alert('Comming Soon')} />;
-        }}
-        keyExtractor={eachFood => eachFood.id}
-      />
+      {filteredFoods().length > 0 ? (
+        <FlatList
+          data={filteredFoods()}
+          renderItem={({item}) => {
+            return (
+              <FoodItem food={item} onPress={() => alert('Comming Soon')} />
+            );
+          }}
+          keyExtractor={eachFood => eachFood.id}
+        />
+      ) : (
+        <View style={{alignItems: 'center', marginTop: 40}}>
+          <Text style={{color: 'red'}}>No food found</Text>
+        </View>
+      )}
     </View>
   );
 };

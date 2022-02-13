@@ -11,11 +11,6 @@ const App = props => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="FoodList"
-          component={FoodList}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
           name="Welcome"
           component={Welcome}
           options={{headerShown: false}}
@@ -37,6 +32,11 @@ const App = props => {
             headerTintColor: '#fff',
             headerTransparent: true,
           }}
+        />
+        <Stack.Screen
+          name="FoodList"
+          component={FoodList}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
