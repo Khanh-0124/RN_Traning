@@ -6,6 +6,7 @@ import {
   Register,
   FoodList,
   ProductGridView,
+  Setting,
 } from './screens/Index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,10 +17,15 @@ const App = props => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="ProductScreen"
           component={ProductGridView}
           options={{headerShown: false}}
+        /> */}
+        <Stack.Screen
+          name="Setting"
+          component={Setting}
+          options={{headerShown: true, headerTitleAlign: 'center'}}
         />
         <Stack.Screen
           name="Welcome"

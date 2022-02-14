@@ -4,4 +4,5 @@ import Register from './Register';
 import FoodList from './FoodList/FoodList';
 import ProductGridView from './ProductGrid/ProductGridView';
 import GridItem from './ProductGrid/GridItem';
-export {Welcome, Login, Register, FoodList, ProductGridView, GridItem};
+import Setting from './Setting';
+export {Welcome, Login, Register, FoodList, ProductGridView, GridItem, Setting};
