@@ -1,6 +1,12 @@
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Welcome, Login, Register, FoodList} from './screens/Index';
+import {
+  Welcome,
+  Login,
+  Register,
+  FoodList,
+  ProductGridView,
+} from './screens/Index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from './constants/Index';
@@ -10,6 +16,11 @@ const App = props => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="ProductScreen"
+          component={ProductGridView}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Welcome"
           component={Welcome}
