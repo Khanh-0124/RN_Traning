@@ -1,5 +1,5 @@
 export default {
-  primary: '#f3722c',
+  primary: '#f94144',
   disabled: '#ccc',
   placeholder: 'rgba(0,0,0,0.6)',
   facebook: 'rgb(27,117,214)',

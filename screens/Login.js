@@ -16,8 +16,8 @@ import {isValidEmail, isValidPassword} from '../itilies/Validation';
 const Login = ({navigation}) => {
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('khanhzua@gmail.com');
+  const [password, setPassword] = useState('123');
   const isValidationOk = () =>
     email.length > 0 &&
     password.length > 0 &&
@@ -61,6 +61,7 @@ const Login = ({navigation}) => {
             setErrorEmail(isValidEmail(text) ? '' : 'Email invalidate');
             setEmail(text);
           }}
+          value={email}
         />
         <View
           style={{
@@ -90,6 +91,7 @@ const Login = ({navigation}) => {
             );
             setPassword(pass);
           }}
+          value={password}
         />
         <View
           style={{
@@ -105,7 +107,7 @@ const Login = ({navigation}) => {
       {/* button */}
       <TouchableOpacity
         disabled={isValidationOk() == false}
-        onPress={() => navigation.navigate('FoodList')}
+        onPress={() => navigation.navigate('BottomTab')}
         style={{
           width: '50%',
           backgroundColor: isValidationOk() ? Colors.primary : Colors.disabled,

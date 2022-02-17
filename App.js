@@ -7,6 +7,7 @@ import {
   FoodList,
   ProductGridView,
   Setting,
+  BottomTab,
 } from './screens/Index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,17 +17,7 @@ const Stack = createStackNavigator();
 const App = props => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        {/* <Stack.Screen
-          name="ProductScreen"
-          component={ProductGridView}
-          options={{headerShown: false}}
-        /> */}
-        <Stack.Screen
-          name="Setting"
-          component={Setting}
-          options={{headerShown: true, headerTitleAlign: 'center'}}
-        />
+      <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen
           name="Welcome"
           component={Welcome}
@@ -51,9 +42,9 @@ const App = props => {
           }}
         />
         <Stack.Screen
-          name="FoodList"
-          component={FoodList}
-          options={{headerShown: false}}
+          name="BottomTab"
+          component={BottomTab}
+          options={{headerShown: false, headerTitleAlign: 'center'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
