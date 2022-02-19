@@ -221,12 +221,14 @@ export default function ProductGridView({navigation}) {
 
             elevation: 10,
           }}>
-          <Icon
-            name="qrcode"
-            size={40}
-            color="rgba(0,0,0,0.7)"
-            style={{marginLeft: 11}}
-          />
+          <TouchableOpacity onPress={() => navigation.navigate('QrScanner')}>
+            <Icon
+              name="qrcode"
+              size={40}
+              color="rgba(0,0,0,0.7)"
+              style={{marginLeft: 11}}
+            />
+          </TouchableOpacity>
           <View
             style={{height: 40, width: 1, backgroundColor: 'rgba(0,0,0,0.4)'}}
           />
@@ -236,7 +238,7 @@ export default function ProductGridView({navigation}) {
               position: 'relative',
               right: 20,
             }}>
-            <View style={{marginLeft: 5}}>
+            <TouchableOpacity style={{marginLeft: 5}}>
               <View style={{flexDirection: 'row'}}>
                 <Icon name="wallet" size={15} color="#fb5607" />
                 <Text style={{marginLeft: 5}}>Wallet</Text>
@@ -244,14 +246,14 @@ export default function ProductGridView({navigation}) {
               <Text style={{fontSize: 12, color: 'rgba(0,0,0,0.5)'}}>
                 Up to 10% off
               </Text>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <View
             style={{height: 40, width: 1, backgroundColor: 'rgba(0,0,0,0.6)'}}
           />
 
-          <View
+          <TouchableOpacity
             style={{
               flexDirection: 'row',
               position: 'relative',
@@ -266,7 +268,7 @@ export default function ProductGridView({navigation}) {
                 Exchange money for code
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 

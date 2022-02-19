@@ -31,7 +31,6 @@ const Login = ({navigation}) => {
         style={{
           flexDirection: 'row',
           height: 200,
-          //   backgroundColor: 'pink',
           justifyContent: 'space-around',
         }}>
         <Text

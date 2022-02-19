@@ -7,6 +7,7 @@ import GridItem from './ProductGrid/GridItem';
 import Setting from './Setting';
 import BottomTab from './BottomTab';
 import Profile from './Profile';
+import QrScanner from './QrScanner';
 export {
   Welcome,
   Login,
@@ -17,4 +18,5 @@ export {
   Setting,
   Profile,
   BottomTab,
+  QrScanner,
 };

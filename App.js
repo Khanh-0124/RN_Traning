@@ -8,6 +8,7 @@ import {
   ProductGridView,
   Setting,
   BottomTab,
+  QrScanner,
 } from './screens/Index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -45,6 +46,12 @@ const App = props => {
           name="BottomTab"
           component={BottomTab}
           options={{headerShown: false, headerTitleAlign: 'center'}}
+        />
+        <Stack.Screen
+          name="QrScanner"
+          component={QrScanner}
+          // options={{stackBarLabel: 'Scanner'}}
+          // options={{headerShown: false, headerTitleAlign: 'center'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
