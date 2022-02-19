@@ -5,10 +5,9 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  ScrollView,
   StatusBar,
-  KeyboardAvoidingView,
   FlatList,
+  KeyboardAvoidingView,
 } from 'react-native';
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../../constants/Index';
@@ -163,7 +162,7 @@ const FoodList = ({navigation}) => {
     //     return <FoodItem food={eachFood} key={eachFood.id} />;
     //   })}
     // </ScrollView>
-    <View style={{flex: 1}}>
+    <KeyboardAvoidingView style={{flex: 1}}>
       <StatusBar barStyle="dark-content" backgroundColor="#f2f2f2" />
       <View>
         <View
@@ -237,7 +236,7 @@ const FoodList = ({navigation}) => {
           <Text style={{color: 'red'}}>No food found</Text>
         </View>
       )}
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

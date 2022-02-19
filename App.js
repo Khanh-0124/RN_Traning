@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 const App = props => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator initialRouteName="BottomTab">
         <Stack.Screen
           name="Welcome"
           component={Welcome}

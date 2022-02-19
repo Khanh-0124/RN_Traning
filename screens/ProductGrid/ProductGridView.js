@@ -15,6 +15,8 @@ import {Icons, fontSize, Colors} from '../../constants/Index';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Rating, AirbnbRating} from 'react-native-ratings';
 import {GridItem} from '../../screens/Index';
+import {SliderBox} from 'react-native-image-slider-box';
+
 export default function ProductGridView({navigation}) {
   const [products, setProducts] = useState([
     {
@@ -177,10 +179,99 @@ export default function ProductGridView({navigation}) {
     },
   ]);
   return (
-    <SafeAreaView style={{backgroundColor: '#fff'}}>
+    <ScrollView style={{backgroundColor: '#fff'}}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFF" />
+      <View>
+        <SliderBox
+          images={[
+            'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/processed-food700-350-e6d0f0f.jpg?quality=90&resize=556,505',
+            'https://images.foody.vn/res/g87/865580/prof/s576x330/foody-upload-api-foody-mobile-hem-avt-jpg-181221102243.jpg',
+            'https://images.foody.vn/res/g1/4093/prof/s640x400/foody-upload-api-foody-mobile-jhjhjh-190612135510.jpg',
+            'https://i.ytimg.com/vi/P3FMSDEN8b4/hqdefault.jpg',
+            'https://luankha.com/wp-content/uploads/2019/12/0203_XUCXIC293.jpg',
+          ]}
+          sliderBoxHeight={200}
+          ImageComponentStyle={{borderRadius: 15, width: '97%', marginTop: 5}}
+          paginationBoxVerticalPadding={20}
+          autoplay={true}
+          dotColor={Colors.primary}
+          circleLoop={true}
+          inactiveDotColor="#90A4AE"
+        />
+        <View
+          style={{
+            justifyContent: 'space-around',
+            flexDirection: 'row',
+            alignItems: 'center',
+            backgroundColor: '#fff',
+            position: 'relative',
+            bottom: 10,
+            width: '97%',
+            height: 70,
+            borderRadius: 10,
+            alignSelf: 'center',
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 10,
+          }}>
+          <Icon
+            name="qrcode"
+            size={40}
+            color="rgba(0,0,0,0.7)"
+            style={{marginLeft: 11}}
+          />
+          <View
+            style={{height: 40, width: 1, backgroundColor: 'rgba(0,0,0,0.4)'}}
+          />
+          <View
+            style={{
+              flexDirection: 'row',
+              position: 'relative',
+              right: 20,
+            }}>
+            <View style={{marginLeft: 5}}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon name="wallet" size={15} color="#fb5607" />
+                <Text style={{marginLeft: 5}}>Wallet</Text>
+              </View>
+              <Text style={{fontSize: 12, color: 'rgba(0,0,0,0.5)'}}>
+                Up to 10% off
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{height: 40, width: 1, backgroundColor: 'rgba(0,0,0,0.6)'}}
+          />
+
+          <View
+            style={{
+              flexDirection: 'row',
+              position: 'relative',
+              right: 20,
+            }}>
+            <View style={{marginLeft: 10}}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon name="coins" size={15} color="#ffb703" />
+                <Text style={{marginLeft: 5}}>Accumulate points</Text>
+              </View>
+              <Text style={{fontSize: 12, color: 'rgba(0,0,0,0.5)'}}>
+                Exchange money for code
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
       <FlatList
-        style={{marginTop: 5}}
+        style={{marginTop: 0}}
         data={products}
         numColumns={2}
         renderItem={({item, index}) => (
@@ -207,6 +298,6 @@ export default function ProductGridView({navigation}) {
         )}
         keyExtractor={product => product.id}
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 }

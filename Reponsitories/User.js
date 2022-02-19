@@ -1,8 +1,10 @@
 // https://randomuser.me/api/
 import axios from 'axios';
+const SERVER_NAME = 'randomuser.me';
+const urlGetUserDitail = `https://${SERVER_NAME}/api`;
 const getUserDetail = async () => {
   try {
-    let response = await axios.get('https://randomuser.me/api');
+    let response = await axios.get(urlGetUserDitail);
     if (response.status != 200) {
       throw 'Failed request';
     }
@@ -11,13 +13,15 @@ const getUserDetail = async () => {
       let User = {};
       debugger;
       User.dateOfBirth = new Date(responseUser.dob.date);
-      User.email = responseUser.email;
+      User.email = responseUser.email ?? '';
       User.gender = responseUser.gender ?? 'male';
       User.userid = `${responseUser.id.name} ${responseUser.id.value}`;
       User.useraddress = `${responseUser.location.state}, ${responseUser.location.street.name}`;
-      User.username = responseUser.login.username;
+      User.username = responseUser.login.username ?? '';
+      User.url = responseUser.picture.large ?? '';
       User.userphone = responseUser.phone ?? '';
-      User.userRegisteredDate = new DataViewate(responseUser.registered.date);
+      User.userRegisteredDate = new Date(responseUser.registered.date);
+      return User;
     }
   } catch (error) {
     debugger;

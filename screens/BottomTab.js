@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {KeyboardAvoidingView, Text, View} from 'react-native';
 import {FoodList, ProductGridView, Setting, Profile} from '../screens/Index.js';
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../constants/Index';

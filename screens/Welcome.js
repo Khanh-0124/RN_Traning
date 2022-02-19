@@ -21,6 +21,7 @@ const Welcome = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <StatusBar hidden={false} backgroundColor="#ccc" />
+
       <ImageBackground
         source={Images.background}
         resizeMode="cover"
@@ -73,7 +74,6 @@ const Welcome = ({navigation}) => {
         <View style={{flex: 6}}>
           {accountTypes.map(accountType => (
             <UIButton
-              // debugger
               key={accountType.name}
               onPress={() => {
                 setAccountTypes(
