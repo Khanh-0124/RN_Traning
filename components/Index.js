@@ -1,2 +1,3 @@
 import UIButton from './UIButton';
-export {UIButton};
+import Header from './UIHeader';
+export {UIButton, Header};

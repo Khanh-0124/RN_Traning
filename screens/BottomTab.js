@@ -1,5 +1,11 @@
 import {KeyboardAvoidingView, Text, View} from 'react-native';
-import {FoodList, ProductGridView, Setting, Profile} from '../screens/Index.js';
+import {
+  FoodList,
+  ProductGridView,
+  Setting,
+  Profile,
+  Chat,
+} from '../screens/Index.js';
 import React, {useState, useRef} from 'react';
 import {Images, Icons, fontSize, Colors} from '../constants/Index';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -18,6 +24,8 @@ function MyTabs() {
       iconName = 'search';
     } else if (screenName == 'Settings') {
       iconName = 'cog';
+    } else if (screenName == 'Chat') {
+      iconName = 'comment-dots';
     } else iconName = 'user';
     return {
       headerShown: false,
@@ -36,7 +44,7 @@ function MyTabs() {
         return (
           <Icon
             name={iconName}
-            size={25}
+            size={route.name == 'Chat' ? 27 : 24}
             color={focused ? Colors.primary : 'rgba(0,0,0,0.6)'}
           />
         );
@@ -49,6 +57,11 @@ function MyTabs() {
         name="Home"
         component={ProductGridView}
         options={{tabBarLabel: 'Home'}}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={Chat}
+        options={{tabBarLabel: 'Chat'}}
       />
       <Tab.Screen
         name="Search"

@@ -9,6 +9,7 @@ import {
   Setting,
   BottomTab,
   QrScanner,
+  Messenger,
 } from './screens/Index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -45,6 +46,11 @@ const App = props => {
         <Stack.Screen
           name="BottomTab"
           component={BottomTab}
+          options={{headerShown: false, headerTitleAlign: 'center'}}
+        />
+        <Stack.Screen
+          name="Messenger"
+          component={Messenger}
           options={{headerShown: false, headerTitleAlign: 'center'}}
         />
         <Stack.Screen

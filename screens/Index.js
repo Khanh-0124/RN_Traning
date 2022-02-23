@@ -8,6 +8,8 @@ import Setting from './Setting';
 import BottomTab from './BottomTab';
 import Profile from './Profile';
 import QrScanner from './QrScanner';
+import Chat from './Chat/Chat';
+import Messenger from './Messenger/Messenger';
 export {
   Welcome,
   Login,
@@ -19,4 +21,6 @@ export {
   Profile,
   BottomTab,
   QrScanner,
+  Chat,
+  Messenger,
 };

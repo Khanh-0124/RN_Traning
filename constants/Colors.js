@@ -8,4 +8,6 @@ export default {
   warning: 'rgb(252, 177, 0)',
   success: 'rgb(7,161,79)',
   alert: 'rgb(226, 69, 90)',
+  messagesTrue: 'rgba(207,186,240, 0.9)',
+  messagesFalse: 'rgba(255,255,255, 0.5)',
 };

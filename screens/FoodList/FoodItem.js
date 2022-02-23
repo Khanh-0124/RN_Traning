@@ -15,13 +15,6 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {isValidEmail, isValidPassword} from '../../itilies/Validation';
 
 function getColorStatus(status) {
-  // if (status.toLowerCase().trim() === 'open now') {
-  //   return Colors.success;
-  // } else if (status.toLowerCase().trim() === 'closing soon')
-  //   return Colors.alert;
-  // else {
-  //   return Colors.warning;
-  // }
   return status.toLowerCase().trim() === 'open now'
     ? Colors.success
     : status.toLowerCase().trim() === 'closing soon'
